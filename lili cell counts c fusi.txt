@@ -3,17 +3,17 @@ from ij.process import ImageProcessor
 from ij.plugin.frame import RoiManager
 
 # specify the number of images you want to process
-nImages = 384  # Number of images in the folder to process
+nImages = 96  # Number of images in the folder to process
 
 for i in range(nImages):
     # Set auto threshold
     IJ.setAutoThreshold(IJ.getImage(), "Default dark no-reset")
     
     # Set threshold
-    IJ.setThreshold(21074  , 65535)
+    IJ.setThreshold(12593  , 65535)
     
     # Analyze particles
-    IJ.run("Analyze Particles...", "size=1-100 circularity=0.80-1.00 summarize")
+    IJ.run("Analyze Particles...", "size=1-500 circularity=0.01-0.60 summarize")
        
     # If not the last iteration, open next image
     if i < nImages-1:
